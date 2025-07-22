@@ -97,15 +97,15 @@ test('clear completed tasks', async ({ page }) => {
 test('mark all tasks as completed using toggle-all', async ({ page }) => {
     const todoPage = new TodoPage(page);
     await page.goto('https://todo-app.tallinn-learning.ee/#/');
-    await todoPage.input.fill('task1');
+    await todoPage.input.fill('Apple');
     await todoPage.input.press('Enter');
-    await todoPage.input.fill('task2');
+    await todoPage.input.fill('Cake');
     await todoPage.input.press('Enter');
 
     await todoPage.toggleAll.check();
 
     await todoPage.buttonCompleted.click();
-    await expect.soft(page.getByText('task1')).toBeVisible();
-    await expect.soft(page.getByText('task2')).toBeVisible();
+    await expect.soft(page.getByText('Apple')).toBeVisible();
+    await expect.soft(page.getByText('Cake')).toBeVisible();
 });
 
