@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test'
+import { Locator, Page } from '@playwright/test'
 export class TodoPage {
   readonly page: Page
   readonly header: Locator
@@ -34,8 +34,4 @@ export class TodoPage {
     return numberOfTasks
   }
 
-  async completeTaskByName(name: string) {
-    const task = this.page.getByRole('listitem').filter({ hasText: name })
-    await task.getByTestId('todo-item-toggle').check()
-  }
 }
